@@ -2,26 +2,109 @@ package ru.hack.hackai.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import ru.hack.hackai.dto.CoordinateDto;
 import ru.hack.hackai.dto.RealtyDto;
+import ru.hack.hackai.entity.RealtyListYear;
 import ru.hack.hackai.entity.RealtyUniq;
+import ru.hack.hackai.repository.RealtyListRepository;
 import ru.hack.hackai.repository.RealtyUniqRepository;
 
-import java.util.List;
-import java.util.Optional;
+import javax.annotation.PostConstruct;
+import java.util.*;
+import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.groupingBy;
+import static java.util.stream.Collectors.toList;
 
 @Service
 @RequiredArgsConstructor
 public class RealtyService {
     private final RealtyUniqRepository repository;
+    private final RealtyListRepository realtyListRepository;
+    private List<RealtyUniq> realtyUniqList = new ArrayList<>();
 
-    public List<RealtyDto> getAll() {
-        return repository.findAll().stream()
+    @PostConstruct
+    public void initCollections() {
+        this.realtyUniqList = repository.findAll();
+        var realtiesYearMap = realtyListRepository.findAll().stream()
+                .filter(o -> o.getObjectId() != null)
+                .collect(groupingBy(
+                        RealtyListYear::getObjectId,
+                        toList())
+                );
+        realtyUniqList.forEach(r -> {
+            var result = realtiesYearMap.get(r.getObjectId());
+            r.setRealtyListYears(result != null ? result : new ArrayList<>());
+        });
+    }
+
+    public List<CoordinateDto> getAll() {
+
+        HashMap<String, CoordinateDto> coordinates = new HashMap<>();
+        realtyUniqList.stream()
                 .map(RealtyDto::new)
-                .sorted((a,b) -> )
+                .filter(r -> r.getLastYearDto() != null)
+                .forEach(realtyDto -> {
+                    var lastYear = realtyDto.getLastYearDto();
+                    var key = realtyDto.getLat() + "_" + realtyDto.getLng();
+                    var area = lastYear.getTotalAreaCol5() != null
+                            ? lastYear.getTotalAreaCol5()
+                            : 0;
+                    var sum = lastYear.getCarryingAmountCol21() != null
+                            ? lastYear.getCarryingAmountCol21()
+                            : 0;
+                    if (coordinates.containsKey(key)) {
+                        var coordinate = coordinates.get(key);
+                        coordinate.setArea(coordinate.getArea() + area);
+                        coordinate.setSum(coordinate.getSum() + sum);
+                        coordinate.getRealtyDtoSet().add(realtyDto);
+                    } else {
+                        var dtoSet = new HashSet<RealtyDto>();
+                        coordinates.put(key,
+                                CoordinateDto.builder()
+                                        .lat(realtyDto.getLat())
+                                        .lng(realtyDto.getLng())
+                                        .area(area)
+                                        .sum(sum)
+                                        .realtyDtoSet(dtoSet)
+                                        .build());
+                    }
+                    coordinates.get(key)
+                            .setCount(coordinates.get(key).getRealtyDtoSet().size());
+                });
+        return coordinates.values().stream()
+                .sorted(Comparator.comparing(CoordinateDto::getArea))
                 .toList();
+
     }
 
     public Optional<RealtyUniq> getById(Long id) {
         return repository.findById(id);
+    }
+
+    public List<RealtyListYear> findAllListYear() {
+        return realtyListRepository.findAll();
+    }
+
+
+    private int comparator(RealtyDto a, RealtyDto b) {
+        var firstArea = a.getLastYearDto();
+        var secondArea = b.getLastYearDto();
+        if (firstArea == null) {
+            return -1;
+        }
+        if (secondArea == null) {
+            return 1;
+        }
+        var firstAreaSize = a.getLastYearDto().getTotalAreaCol5();
+        var secondAreaSize = b.getLastYearDto().getTotalAreaCol5();
+        if (firstAreaSize == null) {
+            return -1;
+        }
+        if (secondAreaSize == null) {
+            return 1;
+        }
+        return firstAreaSize.compareTo(secondAreaSize);
+
     }
 }

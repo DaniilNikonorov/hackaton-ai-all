@@ -1,7 +1,7 @@
 package ru.hack.hackai.dto;
 
 import lombok.Data;
-import ru.hack.hackai.entity.ExpensesDate;
+import ru.hack.hackai.entity.Expenses;
 
 @Data
 public class ExpensesFullDto {
@@ -31,7 +31,7 @@ public class ExpensesFullDto {
 
     private String address;
 
-    public ExpensesFullDto(ExpensesDate from) {
+    public ExpensesFullDto(Expenses from) {
         this.id = from.getId();
         this.smeta = from.getSmeta();
         this.year = from.getYear();

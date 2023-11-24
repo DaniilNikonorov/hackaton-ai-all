@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
+import ru.hack.hackai.dto.CoordinateDto;
 import ru.hack.hackai.dto.RealtyDto;
 import ru.hack.hackai.service.RealtyService;
 
@@ -24,17 +25,17 @@ import java.util.List;
 public class RealtyController {
     private final RealtyService service;
 
-    @ApiOperation(value = "Data from expenses-date table")
+    @ApiOperation(value = "Здания, сагрегированные по области")
     @ApiResponses(value = {
             @ApiResponse(code = 500, message = "ServiceUnavailable")})
 
-    @GetMapping("/expenses/get-all")
-    public List<RealtyDto> getAllExpenses() {
+    @GetMapping("/get-all")
+    public List<CoordinateDto> getAllExpenses() {
         return service.getAll();
     }
 
-    @ApiOperation(value = "One full row from expenses-date table")
-    @GetMapping("/expenses/get-by-id/{id}")
+    @ApiOperation(value = "Любое здание по его идентификатору")
+    @GetMapping("/get-by-id/{id}")
     @ApiResponses(value = {
             @ApiResponse(code = 500, message = "ServiceUnavailable"),
             @ApiResponse(code = 404, message = "Expense was not found"),

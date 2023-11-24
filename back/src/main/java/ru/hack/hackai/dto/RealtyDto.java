@@ -9,7 +9,6 @@ import java.util.List;
 
 @Data
 public class RealtyDto {
-    @Id
     private Long id;
     private String reestrCode;
     private String department;
@@ -49,16 +48,17 @@ public class RealtyDto {
                 .orElse(null);
     }
 
+
     private static int compare(RealtyListYear a, RealtyListYear b) {
         var aYear = a.getYear();
         var bYear = b.getYear();
         if (aYear == null) {
-            return -1;
-        }
-        if (bYear == null) {
             return 1;
         }
-        var resultByYear = aYear.compareTo(bYear);
+        if (bYear == null) {
+            return -1;
+        }
+        var resultByYear = bYear.compareTo(aYear);
         if (resultByYear != 0) {
             return resultByYear;
         }
@@ -67,14 +67,14 @@ public class RealtyDto {
         var bQuarter = b.getQuarter();
 
         if (aQuarter == null) {
-            return -1;
-        }
-
-        if (bQuarter == null) {
             return 1;
         }
 
-        return a.getQuarter().compareTo(b.getQuarter());
+        if (bQuarter == null) {
+            return -1;
+        }
+
+        return b.getQuarter().compareTo(a.getQuarter());
 
     }
 }

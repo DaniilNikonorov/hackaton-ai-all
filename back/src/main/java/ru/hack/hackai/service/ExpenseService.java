@@ -3,10 +3,8 @@ package ru.hack.hackai.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.hack.hackai.dto.ExpensesDto;
-import ru.hack.hackai.entity.ExpensesDate;
-import ru.hack.hackai.entity.KeyRate;
+import ru.hack.hackai.entity.Expenses;
 import ru.hack.hackai.repository.ExpensesDateRepository;
-import ru.hack.hackai.repository.KeyRateRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -23,7 +21,7 @@ public class ExpenseService {
                 .toList();
     }
 
-    public Optional<ExpensesDate> getById(Long id) {
+    public Optional<Expenses> getById(Long id) {
         return expensesDateRepository.findById(id);
     }
 }

@@ -25,7 +25,9 @@ public class RealtyUniq {
     private Double lng;
     private Double lat;
 
-    @OneToMany
-    @JoinColumn(name = "object_id", referencedColumnName = "object_id")
+    @Column(name = "object_id", insertable = false, updatable = false)
+    private String objectId;
+
+    @Transient
     private List<RealtyListYear> realtyListYears = new ArrayList<>();
 }

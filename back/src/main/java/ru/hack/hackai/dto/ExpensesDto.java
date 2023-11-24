@@ -1,14 +1,14 @@
 package ru.hack.hackai.dto;
 
 import lombok.Data;
-import ru.hack.hackai.entity.ExpensesDate;
+import ru.hack.hackai.entity.Expenses;
 
 @Data
 public class ExpensesDto {
     private Long id;
     private String adress;
 
-    public ExpensesDto(ExpensesDate from) {
+    public ExpensesDto(Expenses from) {
         this.id = from.getId();
         this.adress = from.getAdress();
     }
