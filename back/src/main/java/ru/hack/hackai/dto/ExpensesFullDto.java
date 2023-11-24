@@ -3,6 +3,8 @@ package ru.hack.hackai.dto;
 import lombok.Data;
 import ru.hack.hackai.entity.Expenses;
 
+import javax.persistence.Id;
+
 @Data
 public class ExpensesFullDto {
     private Long id;
@@ -31,6 +33,10 @@ public class ExpensesFullDto {
 
     private String address;
 
+    private Double lng;
+
+    private Double lat;
+
     public ExpensesFullDto(Expenses from) {
         this.id = from.getId();
         this.smeta = from.getSmeta();
@@ -45,6 +51,8 @@ public class ExpensesFullDto {
         this.sumEndda = from.getSumEndda();
         this.date = from.getDate();
         this.address = from.getAdress();
+        this.lng = from.getLng();
+        this.lat = from.getLat();
     }
 
 }

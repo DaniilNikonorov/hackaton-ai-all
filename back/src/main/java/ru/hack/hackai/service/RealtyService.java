@@ -72,8 +72,36 @@ public class RealtyService {
                     coordinates.get(key)
                             .setCount(coordinates.get(key).getRealtyDtoSet().size());
                 });
+        coordinates.values().forEach(c -> {
+            c.setCount(c.getRealtyDtoSet().size());
+            String sValue = String.format("%.2f", c.getSum());
+            Double newValue = Double.parseDouble(sValue.replace(',', '.'));
+            c.setSum(newValue);
+            c.getRealtyDtoSet().stream()
+                    .filter(e -> e.getLastYearDto().getTechnicalConditionCol25() != null)
+                    .max((a, b) -> {
+                        var aTechnicalCondition = a.getLastYearDto().getTotalAreaCol5();
+                        var bTechnicalCondition = b.getLastYearDto().getTotalAreaCol5();
+                        if (aTechnicalCondition == null) {
+                            return -1;
+                        }
+                        if (bTechnicalCondition == null) {
+                            return 1;
+                        }
+                        return aTechnicalCondition.compareTo(bTechnicalCondition);
+                    })
+                    .ifPresent(e -> c
+                            .setTechnicalCondition(e.getLastYearDto().getTechnicalConditionCol25())
+                    );
+
+
+        });
         return coordinates.values().stream()
-                .sorted(Comparator.comparing(CoordinateDto::getArea))
+                .filter(c -> !c.getRealtyDtoSet().isEmpty())
+                .sorted(Comparator
+                        .comparing(CoordinateDto::getArea)
+                        .reversed()
+                )
                 .toList();
 
     }

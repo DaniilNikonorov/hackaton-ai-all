@@ -20,12 +20,12 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/realty")
-@Api(tags = "About RealtyTable")
+@Api(tags = "Справочник 'Здания'")
 @RequiredArgsConstructor
 public class RealtyController {
     private final RealtyService service;
 
-    @ApiOperation(value = "Здания, сагрегированные по области")
+    @ApiOperation(value = "Здания, сагрегированные по комплексу")
     @ApiResponses(value = {
             @ApiResponse(code = 500, message = "ServiceUnavailable")})
 

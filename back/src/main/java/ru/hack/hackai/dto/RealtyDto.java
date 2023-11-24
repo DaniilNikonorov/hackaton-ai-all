@@ -13,7 +13,7 @@ public class RealtyDto {
     private String reestrCode;
     private String department;
     private String name;
-
+    private String objectId;
     private String street;
     private String address;
     private String region;
@@ -23,6 +23,7 @@ public class RealtyDto {
     private Double lng;
     private Double lat;
     private RealtyLastYearDto lastYearDto;
+    private String img;
 
     public RealtyDto(RealtyUniq from) {
         this.id = from.getId();
@@ -38,6 +39,8 @@ public class RealtyDto {
         this.lat = from.getLat();
         this.lng = from.getLng();
         this.lastYearDto = getActualLastYear(from);
+        this.objectId = from.getObjectId();
+        this.img = from.getImg();
     }
 
     private RealtyLastYearDto getActualLastYear(RealtyUniq from) {

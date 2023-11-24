@@ -1,0 +1,15 @@
+INSERT INTO cbr.code_expenses (code_expenses, type_expenses, name_expenses) VALUES ('134.1100.050000', 'Коммунальные услуги (расходы прошлых лет)', 'Расходы на коммунальные услуги (расходы прошлых лет)');
+INSERT INTO cbr.code_expenses (code_expenses, type_expenses, name_expenses) VALUES ('134.1000.050000', 'Коммунальные услуги (расходы прошлых лет)', 'Коммунальные услуги (расходы прошлых лет)');
+INSERT INTO cbr.code_expenses (code_expenses, type_expenses, name_expenses) VALUES ('134.1100.010000', 'Электричество', 'Расходы по оплате потребления электроэнергии');
+INSERT INTO cbr.code_expenses (code_expenses, type_expenses, name_expenses) VALUES ('134.1000.010000', 'Электроэнергия', 'Оплата потребления электроэнергии');
+INSERT INTO cbr.code_expenses (code_expenses, type_expenses, name_expenses) VALUES ('132.0111.000000', 'Электроэнергия', 'Оплата потребления электроэнергии');
+INSERT INTO cbr.code_expenses (code_expenses, type_expenses, name_expenses) VALUES ('132.0112.000000', 'Отопление', 'Оплата потребления тепловой энергии');
+INSERT INTO cbr.code_expenses (code_expenses, type_expenses, name_expenses) VALUES ('134.1100.030000', 'Вода', 'Расходы по оплате услуг водоснабжения, водоотведения');
+INSERT INTO cbr.code_expenses (code_expenses, type_expenses, name_expenses) VALUES ('134.1100.040000', 'Газ', 'Расходы по оплате потребления газа');
+INSERT INTO cbr.code_expenses (code_expenses, type_expenses, name_expenses) VALUES ('134.1100.000000', 'Расходы на коммунальные услуги', 'Расходы на коммунальные услуги');
+INSERT INTO cbr.code_expenses (code_expenses, type_expenses, name_expenses) VALUES ('132.0113.000000', 'Вода', 'Оплата водоснабжения, канализации');
+INSERT INTO cbr.code_expenses (code_expenses, type_expenses, name_expenses) VALUES ('134.1000.030000', 'Вода', 'Оплата услуг водоснабжения, водоотведения');
+INSERT INTO cbr.code_expenses (code_expenses, type_expenses, name_expenses) VALUES ('132.0114.000000', 'Газ', 'Оплата потребления газа');
+INSERT INTO cbr.code_expenses (code_expenses, type_expenses, name_expenses) VALUES ('134.1000.040000', 'Газ', 'Оплата потребления газа');
+INSERT INTO cbr.code_expenses (code_expenses, type_expenses, name_expenses) VALUES ('134.1000.020000', 'Отопление', 'Оплата всех видов отопления зданий и сооружений (кроме электро- и газового снабжения)');
+INSERT INTO cbr.code_expenses (code_expenses, type_expenses, name_expenses) VALUES ('134.1100.020000', 'Отопление', 'Расходы по оплате всех видов отопления зданий и сооружений (кроме электро- и газового снабжения)');

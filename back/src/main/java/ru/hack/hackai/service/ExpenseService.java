@@ -3,6 +3,7 @@ package ru.hack.hackai.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.hack.hackai.dto.ExpensesDto;
+import ru.hack.hackai.dto.ExpensesFullDto;
 import ru.hack.hackai.entity.Expenses;
 import ru.hack.hackai.repository.ExpensesDateRepository;
 
@@ -23,5 +24,11 @@ public class ExpenseService {
 
     public Optional<Expenses> getById(Long id) {
         return expensesDateRepository.findById(id);
+    }
+
+    public List<ExpensesFullDto> getByCoordinates(Double lat, Double lng ) {
+        return expensesDateRepository.findAllByLatAndLng(lat, lng).stream()
+                .map(ExpensesFullDto::new)
+                .toList();
     }
 }

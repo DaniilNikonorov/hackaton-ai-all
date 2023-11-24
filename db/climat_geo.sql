@@ -295,10 +295,6 @@ INSERT INTO cbr.climat_geo (subject, city, lat, lng, id) VALUES ('Ямало-Н�
 INSERT INTO cbr.climat_geo (subject, city, lat, lng, id) VALUES ('Ямало-Ненецкий автономный округ', 'Город Тарко-Сале', 64.911823, 77.761055, 296);
 INSERT INTO cbr.climat_geo (subject, city, lat, lng, id) VALUES ('Ямало-Ненецкий автономный округ', 'Салехард', 66.529866, 66.614507, 297);
 INSERT INTO cbr.climat_geo (subject, city, lat, lng, id) VALUES ('Ямало-Ненецкий автономный округ', 'Город Надым', 65.527025, 72.540055, 298);
-INSERT INTO cbr.climat_geo (subject, city, lat, lng, id) VALUES ('Чукотский автономный округ', 'с Островное', 68.11042, 164.173559, 299);
-INSERT INTO cbr.climat_geo (subject, city, lat, lng, id) VALUES ('Чукотский автономный округ', 'с Омолон', 65.235572, 160.537592, 300);
-INSERT INTO cbr.climat_geo (subject, city, lat, lng, id) VALUES ('Чукотский автономный округ', 'с Марково', 64.681842, 170.406448, 301);
-INSERT INTO cbr.climat_geo (subject, city, lat, lng, id) VALUES ('Чукотский автономный округ', 'Город Анадырь', 64.735814, 177.518913, 302);
 INSERT INTO cbr.climat_geo (subject, city, lat, lng, id) VALUES ('Чувашская Республика', 'Чебоксары', 56.139918, 47.247728, 303);
 INSERT INTO cbr.climat_geo (subject, city, lat, lng, id) VALUES ('Чувашская Республика', 'с Порецкое', 55.19984, 46.334492, 304);
 INSERT INTO cbr.climat_geo (subject, city, lat, lng, id) VALUES ('Чеченская Республика', 'Грозный', 43.318366, 45.692421, 305);
@@ -424,3 +420,7 @@ INSERT INTO cbr.climat_geo (subject, city, lat, lng, id) VALUES ('Липецка
 INSERT INTO cbr.climat_geo (subject, city, lat, lng, id) VALUES ('Ивановская область', 'д Иваново-Ильино', 56.752072, 41.657602, 425);
 INSERT INTO cbr.climat_geo (subject, city, lat, lng, id) VALUES ('Владимирская область', 'д Владимирово', 56.546426, 38.906224, 426);
 INSERT INTO cbr.climat_geo (subject, city, lat, lng, id) VALUES ('Калининградская область', 'город Калининград', 54.710162, 20.510137, 1);
+INSERT INTO cbr.climat_geo (subject, city, lat, lng, id) VALUES ('Чукотский автономный округ', 'с Марково', 64.681842, 170.406448, 301);
+INSERT INTO cbr.climat_geo (subject, city, lat, lng, id) VALUES ('Чукотский автономный округ', 'с Омолон', 65.235572, 160.537592, 300);
+INSERT INTO cbr.climat_geo (subject, city, lat, lng, id) VALUES ('Чукотский автономный округ', 'с Островное', 68.11042, 164.173559, 299);
+INSERT INTO cbr.climat_geo (subject, city, lat, lng, id) VALUES ('Чукотский автономный округ', 'Город Анадырь', 64.735814, 177.518913, 302);
