@@ -11,7 +11,7 @@ import javax.persistence.Table;
 @Data
 public class TrSum {
     @Id
-    private Long id;
+    private String objectId;
 
     private Double lng;
 
@@ -22,6 +22,5 @@ public class TrSum {
     private Double sum;
     private Integer codeBuh;
     private Integer codeTu;
-    private String objectId;
 
 }

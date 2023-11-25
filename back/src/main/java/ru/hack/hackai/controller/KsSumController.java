@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 import ru.hack.hackai.entity.KsSum;
 import ru.hack.hackai.service.KsSumService;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/ks-sum")
@@ -32,8 +34,8 @@ public class KsSumController {
     @ApiResponses(value = {
             @ApiResponse(code = 500, message = "ServiceUnavailable"),
     })
-    public List<KsSum> getAllExpensesByCoordinates(@ApiParam("значение широты") @RequestParam(name = "lat") Double lat,
-                                                   @ApiParam("значение долготы") @RequestParam(name = "lng") Double lng) {
-        return service.getByCoordinates(lat, lng);
+    public Set<KsSum> getAllExpensesByCoordinates(@ApiParam("значение широты") @RequestParam(name = "lat") Double lat,
+                                                  @ApiParam("значение долготы") @RequestParam(name = "lng") Double lng) {
+        return new HashSet<>(service.getByCoordinates(lat, lng));
     }
 }

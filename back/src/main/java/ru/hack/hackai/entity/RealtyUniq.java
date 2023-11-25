@@ -25,6 +25,7 @@ public class RealtyUniq {
     private Double lng;
     private Double lat;
     private String img;
+    private Long climatId;
 
     @Column(name = "object_id", insertable = false, updatable = false)
     private String objectId;

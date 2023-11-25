@@ -24,6 +24,7 @@ public class RealtyDto {
     private Double lat;
     private RealtyLastYearDto lastYearDto;
     private String img;
+    private Long climatId;
 
     public RealtyDto(RealtyUniq from) {
         this.id = from.getId();
@@ -41,6 +42,7 @@ public class RealtyDto {
         this.lastYearDto = getActualLastYear(from);
         this.objectId = from.getObjectId();
         this.img = from.getImg();
+        this.climatId = from.getClimatId();
     }
 
     private RealtyLastYearDto getActualLastYear(RealtyUniq from) {

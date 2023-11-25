@@ -95,8 +95,10 @@ public class RealtyService {
                         }
                         return aTechnicalCondition.compareTo(bTechnicalCondition);
                     })
-                    .ifPresent(e -> c
-                            .setTechnicalCondition(e.getLastYearDto().getTechnicalConditionCol25())
+                    .ifPresent(e -> {
+                                c.setClimatId(e.getClimatId());
+                                c.setTechnicalCondition(e.getLastYearDto().getTechnicalConditionCol25());
+                            }
                     );
 
 

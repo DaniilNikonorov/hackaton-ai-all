@@ -21,4 +21,6 @@ public class CoordinateDto {
     private Integer count;
 
     private Set<RealtyDto> realtyDtoSet;
+
+    private Long climatId;
 }

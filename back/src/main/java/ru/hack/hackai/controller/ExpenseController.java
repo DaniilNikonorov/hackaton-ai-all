@@ -11,6 +11,7 @@ import ru.hack.hackai.dto.ExpensesFullDto;
 import ru.hack.hackai.service.ExpenseService;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/expenses")
@@ -45,8 +46,8 @@ public class ExpenseController {
     @ApiResponses(value = {
             @ApiResponse(code = 500, message = "Сервис не доступен"),
     })
-    public List<ExpensesFullDto> getAllExpensesByCoordinates(@ApiParam("значение широты") @RequestParam(name = "lat") Double lat,
-                                                             @ApiParam("значение долготы") @RequestParam(name = "lng") Double lng) {
+    public Set<ExpensesFullDto> getAllExpensesByCoordinates(@ApiParam("значение широты") @RequestParam(name = "lat") Double lat,
+                                                            @ApiParam("значение долготы") @RequestParam(name = "lng") Double lng) {
         return service.getByCoordinates(lat, lng);
     }
 }

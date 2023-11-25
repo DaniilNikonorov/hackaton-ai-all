@@ -12,6 +12,7 @@ import ru.hack.hackai.service.KrSumService;
 import ru.hack.hackai.service.TrSumService;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/tr-sum")
@@ -35,8 +36,8 @@ public class TrSumController {
     @ApiResponses(value = {
             @ApiResponse(code = 500, message = "Сервис не доступен"),
     })
-    public List<TrSum> getAllExpensesByCoordinates(@ApiParam("значение широты") @RequestParam(name = "lat") Double lat,
-                                                   @ApiParam("значение долготы") @RequestParam(name = "lng") Double lng) {
+    public Set<TrSum> getAllExpensesByCoordinates(@ApiParam("значение широты") @RequestParam(name = "lat") Double lat,
+                                                  @ApiParam("значение долготы") @RequestParam(name = "lng") Double lng) {
         return service.getByCoordinates(lat, lng);
     }
 }

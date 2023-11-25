@@ -9,6 +9,8 @@ import ru.hack.hackai.repository.ExpensesDateRepository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -26,9 +28,19 @@ public class ExpenseService {
         return expensesDateRepository.findById(id);
     }
 
-    public List<ExpensesFullDto> getByCoordinates(Double lat, Double lng ) {
+    public Set<ExpensesFullDto> getByCoordinates(Double lat, Double lng) {
         return expensesDateRepository.findAllByLatAndLng(lat, lng).stream()
+                .filter(exp -> {
+                    try {
+                        if (Double.parseDouble(exp.getSum()) > 0) {
+                            return true;
+                        }
+                        return false;
+                    } catch (Exception e) {
+                        return false;
+                    }
+                })
                 .map(ExpensesFullDto::new)
-                .toList();
+                .collect(Collectors.toSet());
     }
 }

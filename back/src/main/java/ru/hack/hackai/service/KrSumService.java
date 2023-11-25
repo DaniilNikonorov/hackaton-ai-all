@@ -8,8 +8,11 @@ import ru.hack.hackai.entity.KrSum;
 import ru.hack.hackai.repository.ExpensesDateRepository;
 import ru.hack.hackai.repository.KrSumRepository;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -20,7 +23,7 @@ public class KrSumService {
         return repository.findAll();
     }
 
-    public List<KrSum> getByCoordinates(Double lat, Double lng ) {
-        return repository.findAllByLatAndLng(lat, lng);
+    public Set<KrSum> getByCoordinates(Double lat, Double lng ) {
+        return new HashSet<>(repository.findAllByLatAndLng(lat, lng));
     }
 }
