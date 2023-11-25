@@ -1,4 +1,4 @@
-import { Flex, Box, Table, Checkbox, Tbody, Td, Text, Th, Thead, Tr, useColorModeValue } from '@chakra-ui/react';
+import { Flex, Box, Table, Tbody, Td, Text, Th, Thead, Tr, useColorModeValue } from '@chakra-ui/react';
 import * as React from 'react';
 
 import {
@@ -10,10 +10,7 @@ import {
 	useReactTable
 } from '@tanstack/react-table';
 
-// Custom components
 import Card from 'components/card/Card';
-import Menu from 'components/menu/MainMenu';
-import {logDOM} from "@testing-library/react";
 
 type RowObj = {
 	"id": null,
@@ -35,7 +32,6 @@ type RowObj = {
 
 const columnHelper = createColumnHelper<RowObj>();
 
-// const columns = columnsDataCheck;
 export function PaymentsTable(props: { tableData: any }) {
 	const { tableData } = props;
 	const [ sorting, setSorting ] = React.useState<SortingState>([]);

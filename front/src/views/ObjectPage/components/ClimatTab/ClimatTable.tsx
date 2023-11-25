@@ -24,7 +24,6 @@ type RowObj = {
 
 const columnHelper = createColumnHelper<RowObj>();
 
-// const columns = columnsDataCheck;
 export function ClimatTable(props: { tableData: any }) {
 	const { tableData } = props;
 	const [ sorting, setSorting ] = React.useState<SortingState>([]);
