@@ -77,6 +77,11 @@ public class RealtyService {
             String sValue = String.format("%.2f", c.getSum());
             Double newValue = Double.parseDouble(sValue.replace(',', '.'));
             c.setSum(newValue);
+
+            String areaStr = String.format("%.2f", c.getArea());
+            Double area = Double.parseDouble(areaStr.replace(',', '.'));
+            c.setArea(area);
+
             c.getRealtyDtoSet().stream()
                     .filter(e -> e.getLastYearDto().getTechnicalConditionCol25() != null)
                     .max((a, b) -> {

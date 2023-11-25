@@ -5,11 +5,11 @@ import ru.hack.hackai.entity.Climat;
 
 @Data
 public class ClimatDto {
-    private Long meanMonthlyHumidityColdestMonth;
-    private Long averageDailyTemperatureColdestMonth;
-    private Long absoluteMinimumTemperature;
-    private Long maxAverageWindSpeed;
-    private Long precipitationAmount;
+    private Double meanMonthlyHumidityColdestMonth;
+    private Double averageDailyTemperatureColdestMonth;
+    private Double absoluteMinimumTemperature;
+    private Double maxAverageWindSpeed;
+    private Double precipitationAmount;
     private String windDirection;
     private Long climatId;
 
