@@ -10,10 +10,7 @@ import {
 	useReactTable
 } from '@tanstack/react-table';
 
-// Custom components
 import Card from 'components/card/Card';
-import Menu from 'components/menu/MainMenu';
-import {logDOM} from "@testing-library/react";
 
 type RowObj = {
 	"id": 67,

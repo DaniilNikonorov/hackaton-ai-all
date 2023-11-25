@@ -10,10 +10,7 @@ import {
 	useReactTable
 } from '@tanstack/react-table';
 
-// Custom components
 import Card from 'components/card/Card';
-import Menu from 'components/menu/MainMenu';
-import {logDOM} from "@testing-library/react";
 
 type RowObj = {
 	"adress": "string",
@@ -30,7 +27,6 @@ type RowObj = {
 
 const columnHelper = createColumnHelper<RowObj>();
 
-// const columns = columnsDataCheck;
 export function CapBuildingExpensesTable(props: { tableData: any }) {
 	const { tableData } = props;
 	const [ sorting, setSorting ] = React.useState<SortingState>([]);

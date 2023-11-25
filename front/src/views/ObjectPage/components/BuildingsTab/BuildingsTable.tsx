@@ -10,10 +10,7 @@ import {
 	useReactTable
 } from '@tanstack/react-table';
 
-// Custom components
 import Card from 'components/card/Card';
-import Menu from 'components/menu/MainMenu';
-import {logDOM} from "@testing-library/react";
 
 type RowObj = {
 	"name": "Помещения убежища здания Главного управления Центрального банка Российской Федерации по Камчатскому краю",
@@ -175,7 +172,7 @@ export function BuildingsTable(props: { tableData: any }) {
 					align='center'
 					fontSize={{ sm: '10px', lg: '12px' }}
 					color='gray.400'>
-					на балансе с
+					на балансе
 				</Text>
 			),
 			cell: (info) => (
